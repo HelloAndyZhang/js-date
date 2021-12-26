@@ -51,7 +51,7 @@ export default {
 		serve({
 			open: false, // 自动打开页面
 			port: 8000,
-			openPage: '/public/index.html', // 打开的页面
+			openPage: './public/index.html', // 打开的页面
 			contentBase: ''
 		}),
 
