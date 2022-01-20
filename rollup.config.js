@@ -5,8 +5,6 @@ import commonjs from "@rollup/plugin-commonjs"//支持编译npm模块以及commo
 import alias from '@rollup/plugin-alias';
 import babel from 'rollup-plugin-babel';
 import { terser } from "rollup-plugin-terser" //压缩代码
-import serve from 'rollup-plugin-serve';
-import livereload from 'rollup-plugin-livereload' // 本地服务
 import Package from './package.json'
 let plugins = [json(), resolve(), commonjs(), babel({ exclude: 'node_modules/**', runtimeHelpers: true }),];
 if (process.env.NODE_ENV == 'production') {
@@ -46,14 +44,6 @@ export default {
 			customResolver,
 		}),
 		...plugins,
-		livereload('dist'),
-		// 本地服务器
-		serve({
-			open: false, // 自动打开页面
-			port: 8000,
-			openPage: './public/index.html', // 打开的页面
-			contentBase: ''
-		}),
 
 	],
 
